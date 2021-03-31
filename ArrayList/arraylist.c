@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
+#include <stdbool.h>
 #include "arraylist.h"
 
 // maximum capacity at arraylist construction
@@ -15,7 +16,7 @@
 
 // throws an Exception when trying to acces the NULL value
 #define NULL_TYPE_ERROR() {\
-            printf("EXCEPTION line [%d]: Can't remove NULL item\n", __LINE__);\
+            printf("EXCEPTION line [%d]: Can't remove NULL value\n", __LINE__);\
             exit(EXIT_FAILURE);\
         }
 
@@ -24,8 +25,8 @@
             memmove((arr) + (offset), (arr), (length) * sizeof(arr))
 
 // creates the arraylist iterator
-#define arraylist_iter(list, index, item) \
-            for (index = 0, item = list->data[0]; index < list->size; item = list->data[++index])
+#define arraylist_iter(list, index, value) \
+            for (index = 0, value = list->data[0]; index < list->size; value = list->data[++index])
 
 //***** Constructor *****//
 arraylist* new_arraylist()
@@ -55,14 +56,14 @@ void arraylist_allocate(arraylist* list, unsigned int size)
     }
 }
 
-void arraylist_append(arraylist* list, void* item)
+void arraylist_append(arraylist* list, void* value)
 {
     arraylist_allocate(list, list->length);
-    list->data[list->length++] = item;
+    list->data[list->length++] = value;
 }
 
 void arraylist_insert(
-    arraylist* list, unsigned int index, void* item)
+    arraylist* list, unsigned int index, void* value)
 {
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
@@ -70,55 +71,77 @@ void arraylist_insert(
     // check if current capacity will suffice & allocate if not
     arraylist_allocate(list, list->length + 1);
 
-    // create extra spot for a new item by shifting array by 1
+    // create extra spot for a new value by shifting array by 1
     arraylist_memmove(
         list->data + index, 1, list->length - index);
-    list->data[index] = item;
+    list->data[index] = value;
     list->length++;
 }
 
-void arraylist_push(arraylist* list, void* item)
+void arraylist_push(arraylist* list, void* value)
 {
-    arraylist_insert(list, 0, item);
+    arraylist_insert(list, 0, value);
 }
 
 void* arraylist_get(arraylist* list, unsigned int index)
 {
-    if (index > list->length) {
+    if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
-    }
-
     return list->data[index];
 }
 
+int arraylist_geti(arraylist* list, void* value)
+{
+    for (int i = 0; i < list->length; i++)
+        if (list->data[i] == value)
+            return i;
+    return -1;
+}
+
 void arraylist_replace(
-    arraylist* list, unsigned int index, void* item)
+    arraylist* list, unsigned int index, void* value)
 {
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
-    list->data[index] = item;
-    list->length++;
+    list->data[index] = value;
 }
 
 void* arraylist_pop(arraylist* list)
 {
-    int last = list->length;
-    void* item = arraylist_remove(list, --last);
-    return item;
+    int last = list->length - 1;
+    return arraylist_removei(list, last);
 }
 
-void* arraylist_remove(arraylist* list, unsigned int index)
+void* arraylist_removei(arraylist* list, unsigned int index)
 {
     if (index > list->length)
         NULL_TYPE_ERROR();
 
     // set up the return value
-    void* item = list->data[index];
+    void* value = list->data[index];
 
     // shift arrayList to the left by one
     arraylist_memmove(
         list->data + index + 1, -1, list->length - index);
     list->length--;
 
-    return item;
+    return value;
 }
+
+void* arraylist_remove(arraylist* list, void* value)
+{
+    void* val;
+    for (int i = 0; i < list->length; i++)
+        if (list->data[i] == value)
+            val = arraylist_removei(list, i);
+    return val;
+}
+
+bool arraylist_contains(arraylist* list, void* value)
+{
+    for (int i = 0; i < list->length; i++)
+        if (list->data[i] == value)
+            return true;
+    return false;
+}
+
