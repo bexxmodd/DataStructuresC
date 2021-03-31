@@ -28,8 +28,13 @@
 #define smartlist_iter(list, index, value) \
             for (index = 0, value = list->data[0]; index < list->size; value = list->data[++index])
 
+///< compares two data valus
+int __comperator(const void * a, const void * b)
+{
+    return ( *(int*) a - *(int*) b );
+}
 
-//***** Constructor *****//
+//***** SmartList Constructor *****//
 smartlist* new_smartlist()
 {
     smartlist* list = malloc(sizeof(smartlist));
@@ -108,7 +113,9 @@ void* smartlist_get(smartlist* list, unsigned int index)
 
 int smartlist_geti(smartlist* list, void* value)
 {
-    for (int i = 0; i < list->length; i++)
+    register int i;
+
+    for (i = 0; i < list->length; i++)
         if (list->data[i] == value)
             return i;
     return -1;
@@ -135,31 +142,26 @@ void* smartlist_removei(smartlist* list, unsigned int index)
         NULL_TYPE_ERROR();
 
     // set up the return value
-    void* value = list->data[index];
+    void* val = list->data[index];
 
     // shift smartlist to the left by one
     smartlist_memmove(
         list->data + index + 1, -1, list->length - index);
     list->length--;
     smartlist_dealocate(list);
-    
-    return value;
+    return val;
 }
 
 void* smartlist_remove(smartlist* list, const void* value)
 {
     void* val;
-    for (int i = 0; i < list->length; i++)
+    register int i;
+
+    for (i = 0; i < list->length; i++)
         if (list->data[i] == value)
             val = smartlist_removei(list, i);
     smartlist_dealocate(list);
-    return val;
-}
-
-///< compares two data valus
-int __comperator(const void * a, const void * b)
-{
-    return ( *(int*) a - *(int*) b );
+    return (val != NULL) ? val : -1;
 }
 
 void smartlist_sort(smartlist* list)
@@ -170,7 +172,8 @@ void smartlist_sort(smartlist* list)
 void smartlist_reverse(smartlist* list)
 {
     void* tmp;
-    register int low, high, len = list->length;
+    register int low, high;
+    unsigned int len = list->length;
 
     for (low = 0, high = len - 1; low < high; low++, high--) {
         tmp = list->data[low];
@@ -181,10 +184,47 @@ void smartlist_reverse(smartlist* list)
 
 bool smartlist_contains(smartlist* list, void* value)
 {
-    for (int i = 0; i < list->length; i++)
+    register int i;
+
+    for (i = 0; i < list->length; i++)
         if (list->data[i] == value)
             return true;
     return false;
+}
+
+void smartlist_merge(smartlist* list1, smartlist* list2)
+{
+    register int i;
+    unsigned int new_length = list1->length + list2->length;
+    smartlist_allocate(list1, new_length);
+    
+    for (i = 0; i < list2->length; i++)
+        smartlist_append(list1, list2->data[i]);
+}
+
+smartlist* smartlist_slice(
+    smartlist* list, unsigned int starti, unsigned int endi)
+{
+    if (starti >= list->length)
+        INDEX_OUT_OF_BOUND(starti);
+    if (endi < starti)
+        INDEX_OUT_OF_BOUND(endi);
+    
+    smartlist* new_list = new_smartlist();
+    endi = (list->length < endi) ? list->length : endi;
+
+    for (; starti < endi; starti++)
+        smartlist_append(new_list, list->data[starti]);
+    return new_list;
+}
+
+void smartlist_clear(smartlist* list)
+{
+    unsigned int len = list->length;
+    register int i;
+
+    for (i = 0; i < len; i++)
+        list->data[i] = 0;
 }
 
 void smartlist_free(smartlist* list)

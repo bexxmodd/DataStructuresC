@@ -85,18 +85,62 @@ void smartlist_replace(smartlist* list, unsigned int index, const void* value);
  */
 void* smartlist_removei(smartlist* list, unsigned int index);
 
+/**
+ * Remove the from a smartlist if the value is present in the list
+ * If the value is not found in the list -1 will be returned.
+ * @param[in] list from which to remove value.
+ * @param[in] value to remove from list.
+ */
 void* smartlist_remove(smartlist* list, const void* value);
 
-/** Pop the last value in the list.
+/** 
+ * Pop the last value in the list.
  * If the list is empty exception will be thrown.
  * @param[in] list to pop the value from.
  */
 void* smartlist_pop(smartlist* list);
 
+/**
+ * Sort a smartlist in ascending order.
+ * This function uses C native qsort function.
+ * @param[in] list that needs to be sorted.
+ */
 void smartlist_sort(smartlist* list);
 
+/**
+ * Reverse given list inplace.
+ * @param[in] list to be reversed
+ */
 void smartlist_reverse(smartlist* list);
 
-void smartlist_free(smartlist* list);
+/**
+ * Merge two smartlists.
+ * Second list will be appended at the end of the first list.
+ * @param[in] list1
+ * @param[in] list2
+ */
+void smartlist_merge(smartlist* list1, smartlist* list2);
 
-int __comparetor(const void * a, const void * b);
+/**
+ * Extract the slice from a given smartlist and returns as a new smartlist
+ * Slice will be between starting index and ending index inclusive
+ * @param[in] list
+ * @param[in] starti ng index. If more than list length exception will be thrown.
+ * @param[in] endi ing index. If more than list length,
+                        slice'll go till the end of the list.
+ *                      If less than starting index exception will be thrown.
+ * @param[out] smartlist
+ */
+smartlist* smartlist_slice(smartlist* list, unsigned int starti, unsigned int endi);
+
+/**
+ * Set all the values in the  list to zero
+ * @param[in] list
+ */
+void smartlist_clear(smartlist* list);
+
+/**
+ * Free the space which was allocated for the smartlist
+ * @param[in] list
+ */
+void smartlist_free(smartlist* list);
