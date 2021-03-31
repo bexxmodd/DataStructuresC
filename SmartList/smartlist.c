@@ -3,9 +3,9 @@
 #include <assert.h>
 #include <string.h>
 #include <stdbool.h>
-#include "arraylist.h"
+#include "smartlist.h"
 
-// maximum capacity at arraylist construction
+// maximum capacity at smartlist construction
 #define INITIAL_CAPACITY 4
 
 ///< throws an Exception when index is out of bound
@@ -21,18 +21,18 @@
         })
 
 ///< shifts memory based on the need of insert or remove functions
-#define arraylist_memmove(arr, offset, length) \
+#define smartlist_memmove(arr, offset, length) \
             memmove((arr) + (offset), (arr), (length) * sizeof(arr))
 
-///< creates the arraylist iterator
-#define arraylist_iter(list, index, value) \
+///< creates the smartlist iterator
+#define smartlist_iter(list, index, value) \
             for (index = 0, value = list->data[0]; index < list->size; value = list->data[++index])
 
 
 //***** Constructor *****//
-arraylist* new_arraylist()
+smartlist* new_smartlist()
 {
-    arraylist* list = malloc(sizeof(arraylist));
+    smartlist* list = malloc(sizeof(smartlist));
     void* arr = calloc(sizeof(int), INITIAL_CAPACITY);
     list->data = arr;
     assert(list->data);
@@ -43,7 +43,7 @@ arraylist* new_arraylist()
     return list;
 }
 
-void arraylist_allocate(arraylist* list, unsigned int size)
+void smartlist_allocate(smartlist* list, unsigned int size)
 {
     if (size > list->capacity * 0.6) {
         unsigned int new_cap = list->capacity;
@@ -57,7 +57,7 @@ void arraylist_allocate(arraylist* list, unsigned int size)
     }
 }
 
-void arraylist_dealocate(arraylist* list)
+void smartlist_dealocate(smartlist* list)
 {
     unsigned int new_cap = list->capacity;
     if (list->length < list->capacity / 2 
@@ -72,41 +72,41 @@ void arraylist_dealocate(arraylist* list)
     list->capacity = new_cap;
 }
 
-void arraylist_append(arraylist* list, const void* value)
+void smartlist_append(smartlist* list, const void* value)
 {
-    arraylist_allocate(list, list->length);
+    smartlist_allocate(list, list->length);
     list->data[list->length++] = value;
 }
 
-void arraylist_insert(
-    arraylist* list, unsigned int index, const void* value)
+void smartlist_insert(
+    smartlist* list, unsigned int index, const void* value)
 {
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
     
     // check if current capacity will suffice & allocate if not
-    arraylist_allocate(list, list->length + 1);
+    smartlist_allocate(list, list->length + 1);
 
     // create extra spot for a new value by shifting array by 1
-    arraylist_memmove(
+    smartlist_memmove(
         list->data + index, 1, list->length - index);
     list->data[index] = value;
     list->length++;
 }
 
-void arraylist_push(arraylist* list, const void* value)
+void smartlist_push(smartlist* list, const void* value)
 {
-    arraylist_insert(list, 0, value);
+    smartlist_insert(list, 0, value);
 }
 
-void* arraylist_get(arraylist* list, unsigned int index)
+void* smartlist_get(smartlist* list, unsigned int index)
 {
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
     return list->data[index];
 }
 
-int arraylist_geti(arraylist* list, void* value)
+int smartlist_geti(smartlist* list, void* value)
 {
     for (int i = 0; i < list->length; i++)
         if (list->data[i] == value)
@@ -114,22 +114,22 @@ int arraylist_geti(arraylist* list, void* value)
     return -1;
 }
 
-void arraylist_replace(
-    arraylist* list, unsigned int index, const void* value)
+void smartlist_replace(
+    smartlist* list, unsigned int index, const void* value)
 {
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
     list->data[index] = value;
 }
 
-void* arraylist_pop(arraylist* list)
+void* smartlist_pop(smartlist* list)
 {
     int last = list->length - 1;
-    arraylist_dealocate(list);
-    return arraylist_removei(list, last);
+    smartlist_dealocate(list);
+    return smartlist_removei(list, last);
 }
 
-void* arraylist_removei(arraylist* list, unsigned int index)
+void* smartlist_removei(smartlist* list, unsigned int index)
 {
     if (index > list->length)
         NULL_TYPE_ERROR();
@@ -137,37 +137,37 @@ void* arraylist_removei(arraylist* list, unsigned int index)
     // set up the return value
     void* value = list->data[index];
 
-    // shift arrayList to the left by one
-    arraylist_memmove(
+    // shift smartlist to the left by one
+    smartlist_memmove(
         list->data + index + 1, -1, list->length - index);
     list->length--;
-    arraylist_dealocate(list);
+    smartlist_dealocate(list);
     
     return value;
 }
 
-void* arraylist_remove(arraylist* list, const void* value)
+void* smartlist_remove(smartlist* list, const void* value)
 {
     void* val;
     for (int i = 0; i < list->length; i++)
         if (list->data[i] == value)
-            val = arraylist_removei(list, i);
-    arraylist_dealocate(list);
+            val = smartlist_removei(list, i);
+    smartlist_dealocate(list);
     return val;
 }
 
 ///< compares two data valus
-int __comparator(const void * a, const void * b)
+int __comperator(const void * a, const void * b)
 {
-   return ( *(int*) a - *(int*) b );
+    return ( *(int*) a - *(int*) b );
 }
 
-void arraylist_sort(arraylist* list)
+void smartlist_sort(smartlist* list)
 {
-    qsort(list->data, list->length, sizeof(list->data[0]), &__comparator);
+    qsort(list->data, list->length, sizeof(list->data[0]), &__comperator);
 }
 
-void arraylist_reverse(arraylist* list)
+void smartlist_reverse(smartlist* list)
 {
     void* tmp;
     register int low, high, len = list->length;
@@ -179,7 +179,7 @@ void arraylist_reverse(arraylist* list)
     }
 }
 
-bool arraylist_contains(arraylist* list, void* value)
+bool smartlist_contains(smartlist* list, void* value)
 {
     for (int i = 0; i < list->length; i++)
         if (list->data[i] == value)
@@ -187,7 +187,7 @@ bool arraylist_contains(arraylist* list, void* value)
     return false;
 }
 
-void arraylist_delete(arraylist* list)
+void smartlist_free(smartlist* list)
 {
     free(list->data);
     free(list);
