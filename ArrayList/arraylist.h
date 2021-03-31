@@ -95,4 +95,8 @@ void* arraylist_pop(arraylist* list);
 
 void arraylist_sort(arraylist* list);
 
+void arraylist_reverse(arraylist* list);
+
+void arraylist_delete(arraylist* list)
+
 int __comparator(const void * a, const void * b);

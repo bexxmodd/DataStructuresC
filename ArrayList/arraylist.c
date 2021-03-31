@@ -187,3 +187,9 @@ bool arraylist_contains(arraylist* list, void* value)
     return false;
 }
 
+void arraylist_delete(arraylist* list)
+{
+    free(list->data);
+    free(list);
+}
+
