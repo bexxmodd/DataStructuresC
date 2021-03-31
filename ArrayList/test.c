@@ -39,7 +39,7 @@ int main()
     printf("\n");
 
     /********* Test replace *********/
-    arraylist_replace(list, 1, 11);
+    arraylist_replace(list, 1, 21);
     printf("repalce: Now, item at index %d is %d\n", 1, list->data[1]);
     for (i = 0; i < list->length; i++)
         printf("%d, ", list->data[i]);
@@ -60,6 +60,14 @@ int main()
 
     int r3 = arraylist_pop(list);
     printf("pop: poped item is %d, and the length of a list is %d\n", r3, list->length);
+    for (i = 0; i < list->length; i++)
+        printf("%d, ", list->data[i]);
+    printf("\n");
+    printf("Length: %d; and updated Cap: %d\n", list->length, list->capacity);
+
+    /********* Test sort  *********/
+    arraylist_insert(list, 1, 99);
+    arraylist_sort(list);
     for (i = 0; i < list->length; i++)
         printf("%d, ", list->data[i]);
     printf("\n");

@@ -1,6 +1,9 @@
-// @file arraylist.h
-// @author: Beka Modebadze
-// @email: bexxmodd@gmail.com
+/**
+ * @file arraylist.h
+ * @author: Beka Modebadze
+ * @email: bexxmodd@gmail.com
+ * @date: 03/31/2021
+ */
 
 
 /// Arraylist type
@@ -26,11 +29,18 @@ arraylist* new_arraylist();
 void arraylist_allocate(arraylist* list, unsigned int size);
 
 /**
+ * Dealocates space on dynamic memory when the number of used spaces 
+ * is below 50% of the allocated space and more than initial capacity.
+ * @param[in] list at which the dealocation will be performed.
+ */
+void arraylist_dealocate(arraylist* list);
+
+/**
  * Append data to the end of the ArrayList.
  * @param[in] arraylist pointer where data needs to be appended.
  * @param[in] value which needs to be appended.
  */
-void arraylist_append(arraylist* list, void* value);
+void arraylist_append(arraylist* list, const void* value);
 
 /**
  * Add value on the given index and shifting the rest of list to the right.
@@ -38,7 +48,7 @@ void arraylist_append(arraylist* list, void* value);
  * @param[in] index where value will be added.
  * @param[in] value which will be added.
  */
-void arraylist_insert(arraylist* list, unsigned int index, void* value);
+void arraylist_insert(arraylist* list, unsigned int index, const void* value);
 
 /**
  * Add value on the top of the list (indexed 0).
@@ -46,7 +56,7 @@ void arraylist_insert(arraylist* list, unsigned int index, void* value);
  * @param[in] list to add value to.
  * @param[in] value which will be added.
  */
-void arraylist_push(arraylist* list, void* value);
+void arraylist_push(arraylist* list, const void* value);
 
 /**
  * Get the data on a given index from a list. If index exceeds number
@@ -64,7 +74,7 @@ void* arraylist_get(arraylist* list, unsigned int index);
  * @param[in] index at which to add an value.
  * @param[in] value that will be added to the list.
  */
-void arraylist_replace(arraylist* list, unsigned int index, void* value);
+void arraylist_replace(arraylist* list, unsigned int index, const void* value);
 
 /**
  * Remove the value on a given index. If index is out of bounds
@@ -75,10 +85,14 @@ void arraylist_replace(arraylist* list, unsigned int index, void* value);
  */
 void* arraylist_removei(arraylist* list, unsigned int index);
 
-void* arraylist_remove(arraylist* list, void* value);
+void* arraylist_remove(arraylist* list, const void* value);
 
 /** Pop the last value in the list.
  * If the list is empty exception will be thrown.
  * @param[in] list to pop the value from.
  */
 void* arraylist_pop(arraylist* list);
+
+void arraylist_sort(arraylist* list);
+
+int __comparator(const void * a, const void * b);
