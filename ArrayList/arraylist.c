@@ -8,18 +8,20 @@
 #define INITIAL_CAPACITY 4
 
 // throws an Exception when index is out of bound
-#define INDEX_OUT_OF_BOUND(index) \
-            printf("EXCEPTION line [%d]: Index %d out of bound!", __LINE__, index); \
-            exit(EXIT_FAILURE)
+#define INDEX_OUT_OF_BOUND(index) {\
+            printf("EXCEPTION line [%d]: Index %d out of bound!\n", __LINE__, index);\
+            exit(EXIT_FAILURE);\
+        }
 
 // throws an Exception when trying to acces the NULL value
-#define NULL_TYPE_ERROR() \
-            printf("EXCEPTION line [%d]: Can't remove NULL item", __LINE__); \
-            exit(EXIT_FAILURE)
+#define NULL_TYPE_ERROR() {\
+            printf("EXCEPTION line [%d]: Can't remove NULL item\n", __LINE__);\
+            exit(EXIT_FAILURE);\
+        }
 
 // shifts memory based on the need of insert or remove functions
-#define arraylist_mem_shift(s, offset, length) \
-            memmove((s) + (offset), (s), (length) * sizeof(s))
+#define arraylist_memmove(arr, offset, length) \
+            memmove((arr) + (offset), (arr), (length) * sizeof(arr))
 
 // creates the arraylist iterator
 #define arraylist_iter(list, index, item) \
@@ -64,13 +66,14 @@ void arraylist_insert(
 {
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
-
+    
     // check if current capacity will suffice & allocate if not
     arraylist_allocate(list, list->length + 1);
 
     // create extra spot for a new item by shifting array by 1
-    arraylist_mem_shift(
+    arraylist_memmove(
         list->data + index, 1, list->length - index);
+    list->data[index] = item;
     list->length++;
 }
 
@@ -95,8 +98,6 @@ void arraylist_replace(
         INDEX_OUT_OF_BOUND(index);
     list->data[index] = item;
     list->length++;
-
-    return 1;
 }
 
 void* arraylist_pop(arraylist* list)
@@ -115,7 +116,7 @@ void* arraylist_remove(arraylist* list, unsigned int index)
     void* item = list->data[index];
 
     // shift arrayList to the left by one
-    arraylist_mem_shift(
+    arraylist_memmove(
         list->data + index + 1, -1, list->length - index);
     list->length--;
 
