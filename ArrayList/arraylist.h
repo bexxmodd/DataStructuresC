@@ -32,8 +32,20 @@ void arraylist_allocate(arraylist* list, unsigned int size);
  */
 void arraylist_append(arraylist* list, void* item);
 
-void arraylist_add(arraylist* list, unsigned int index, void* item);
+/**
+ * Add item on the given index and shifting the rest of list to the right.
+ * @param[in] list to add item to.
+ * @param[in] index where item will be added.
+ * @param[in] item which will be added.
+ */
+void arraylist_insert(arraylist* list, unsigned int index, void* item);
 
+/**
+ * Add item on the top of the list (indexed 0).
+ * This function uses other arraylist_insert function.
+ * @param[in] list to add item to.
+ * @param[in] item which will be added.
+ */
 void arraylist_push(arraylist* list, void* item);
 
 /**
