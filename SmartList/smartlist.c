@@ -10,13 +10,13 @@
 
 ///< throws an Exception when index is out of bound
 #define INDEX_OUT_OF_BOUND(index) ({\
-            printf("EXCEPTION line [%d]: Index %d out of bound!\n", __LINE__, index);\
+            printf("EXCEPTION %s : [%d] > Index %d out of bound!\n", __FUNCTION__, __LINE__, index);\
             exit(EXIT_FAILURE);\
         })
 
 ///< throws an Exception when trying to acces the NULL value
 #define NULL_TYPE_ERROR() ({\
-            printf("EXCEPTION line [%d]: Can't remove NULL value\n", __LINE__);\
+            printf("EXCEPTION %s : [%d] > Can't remove NULL value\n", __FUNCTION__, __LINE__);\
             exit(EXIT_FAILURE);\
         })
 
@@ -29,16 +29,17 @@
             for (index = 0, value = list->data[0]; index < list->size; value = list->data[++index])
 
 ///< compares two data valus
-int __comperator(const void * a, const void * b)
+static int _comperator(const void *a, const void *b)
 {
-    return ( *(int*) a - *(int*) b );
+    // assert(reverse >= -1 && reverse <= 1);
+    return -1 * ( *(int*) a - *(int*) b );
 }
 
 //***** SmartList Constructor *****//
-smartlist* new_smartlist()
+smartlist *new_smartlist()
 {
-    smartlist* list = malloc(sizeof(smartlist));
-    void* arr = calloc(sizeof(int), INITIAL_CAPACITY);
+    smartlist *list = malloc(sizeof(smartlist));
+    void *arr = calloc(sizeof(int), INITIAL_CAPACITY);
     list->data = arr;
     assert(list->data);
 
@@ -48,7 +49,7 @@ smartlist* new_smartlist()
     return list;
 }
 
-void smartlist_allocate(smartlist* list, unsigned int size)
+void smartlist_allocate(smartlist *list, unsigned int size)
 {
     if (size > list->capacity * 0.6) {
         unsigned int new_cap = list->capacity;
@@ -62,7 +63,7 @@ void smartlist_allocate(smartlist* list, unsigned int size)
     }
 }
 
-void smartlist_dealocate(smartlist* list)
+void smartlist_dealocate(smartlist *list)
 {
     unsigned int new_cap = list->capacity;
     if (list->length < list->capacity / 2 
@@ -70,21 +71,21 @@ void smartlist_dealocate(smartlist* list)
         while (new_cap > list->capacity / 2)
             new_cap /= 2;
 
-    // new capacity should not be less than INITIAL CAPACITY
+    // new capacity shouldn't be less than INITIAL_CAPACITY
     new_cap = (new_cap > INITIAL_CAPACITY) ? new_cap : INITIAL_CAPACITY;
     list->data = realloc(list->data, sizeof(void*) * new_cap);
     assert(list->data);
     list->capacity = new_cap;
 }
 
-void smartlist_append(smartlist* list, const void* value)
+void smartlist_append(smartlist *list, const void *value)
 {
     smartlist_allocate(list, list->length);
     list->data[list->length++] = value;
 }
 
 void smartlist_insert(
-    smartlist* list, unsigned int index, const void* value)
+    smartlist *list, unsigned int index, const void *value)
 {
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
@@ -99,19 +100,19 @@ void smartlist_insert(
     list->length++;
 }
 
-void smartlist_push(smartlist* list, const void* value)
+void smartlist_push(smartlist *list, const void *value)
 {
     smartlist_insert(list, 0, value);
 }
 
-void* smartlist_get(smartlist* list, unsigned int index)
+void *smartlist_get(smartlist *list, unsigned int index)
 {
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
     return list->data[index];
 }
 
-int smartlist_geti(smartlist* list, void* value)
+int smartlist_geti(smartlist *list, void *value)
 {
     register int i;
 
@@ -122,27 +123,27 @@ int smartlist_geti(smartlist* list, void* value)
 }
 
 void smartlist_replace(
-    smartlist* list, unsigned int index, const void* value)
+    smartlist* list, unsigned int index, const void *value)
 {
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
     list->data[index] = value;
 }
 
-void* smartlist_pop(smartlist* list)
+void *smartlist_pop(smartlist *list)
 {
     int last = list->length - 1;
     smartlist_dealocate(list);
     return smartlist_removei(list, last);
 }
 
-void* smartlist_removei(smartlist* list, unsigned int index)
+void *smartlist_removei(smartlist *list, unsigned int index)
 {
     if (index > list->length)
         NULL_TYPE_ERROR();
 
     // set up the return value
-    void* val = list->data[index];
+    void *val = list->data[index];
 
     // shift smartlist to the left by one
     smartlist_memmove(
@@ -152,26 +153,26 @@ void* smartlist_removei(smartlist* list, unsigned int index)
     return val;
 }
 
-void* smartlist_remove(smartlist* list, const void* value)
+void *smartlist_remove(smartlist *list, const void *value)
 {
-    void* val;
+    void *val;
     register int i;
 
     for (i = 0; i < list->length; i++)
         if (list->data[i] == value)
             val = smartlist_removei(list, i);
     smartlist_dealocate(list);
-    return (val != NULL) ? val : -1;
+    return (val) ? val : -1;
 }
 
 void smartlist_sort(smartlist* list)
 {
-    qsort(list->data, list->length, sizeof(list->data[0]), &__comperator);
+    qsort(list->data, list->length, sizeof(list->data[0]), _comperator);
 }
 
-void smartlist_reverse(smartlist* list)
+void smartlist_reverse(smartlist *list)
 {
-    void* tmp;
+    void *tmp;
     register int low, high;
     unsigned int len = list->length;
 
@@ -182,7 +183,7 @@ void smartlist_reverse(smartlist* list)
     }
 }
 
-bool smartlist_contains(smartlist* list, void* value)
+bool smartlist_contains(smartlist *list, void *value)
 {
     register int i;
 
@@ -192,7 +193,7 @@ bool smartlist_contains(smartlist* list, void* value)
     return false;
 }
 
-void smartlist_merge(smartlist* list1, smartlist* list2)
+void smartlist_merge(smartlist *list1, smartlist *list2)
 {
     register int i;
     unsigned int new_length = list1->length + list2->length;
@@ -202,8 +203,8 @@ void smartlist_merge(smartlist* list1, smartlist* list2)
         smartlist_append(list1, list2->data[i]);
 }
 
-smartlist* smartlist_slice(
-    smartlist* list, unsigned int starti, unsigned int endi)
+smartlist *smartlist_slice(
+    smartlist *list, unsigned int starti, unsigned int endi)
 {
     if (starti >= list->length)
         INDEX_OUT_OF_BOUND(starti);
@@ -218,7 +219,7 @@ smartlist* smartlist_slice(
     return new_list;
 }
 
-void smartlist_clear(smartlist* list)
+void smartlist_clear(smartlist *list)
 {
     unsigned int len = list->length;
     register int i;
@@ -227,7 +228,7 @@ void smartlist_clear(smartlist* list)
         list->data[i] = 0;
 }
 
-void smartlist_free(smartlist* list)
+void smartlist_delete(smartlist* list)
 {
     free(list->data);
     free(list);
