@@ -42,7 +42,7 @@ void smartlist_dealocate(smartlist *list);
  * @param[in] smartlist pointer where data needs to be appended.
  * @param[in] value which needs to be appended.
  */
-void smartlist_append(smartlist *list, const void *value);
+void smartlist_append(smartlist *list, void *value);
 
 /**
  * Add value on the given index and shifting the rest of list to the right.
@@ -50,7 +50,7 @@ void smartlist_append(smartlist *list, const void *value);
  * @param[in] index where value will be added.
  * @param[in] value which will be added.
  */
-void smartlist_insert(smartlist *list, unsigned int index, const void *value);
+void smartlist_insert(smartlist *list, unsigned int index, void *value);
 
 /**
  * Add value on the top of the list (indexed 0).
@@ -58,7 +58,7 @@ void smartlist_insert(smartlist *list, unsigned int index, const void *value);
  * @param[in] list to add value to.
  * @param[in] value which will be added.
  */
-void smartlist_push(smartlist *list, const void *value);
+void smartlist_push(smartlist *list, void *value);
 
 /**
  * Get the data on a given index from a list. If index exceeds number
@@ -76,7 +76,7 @@ void *smartlist_get(smartlist *list, unsigned int index);
  * @param[in] index at which to add an value.
  * @param[in] value that will be added to the list.
  */
-void smartlist_replace(smartlist *list, unsigned int index, const void *value);
+void smartlist_replace(smartlist *list, unsigned int index, void *value);
 
 /**
  * Remove the value on a given index. If index is out of bounds
@@ -93,7 +93,7 @@ void *smartlist_removei(smartlist *list, unsigned int index);
  * @param[in] list from which to remove value.
  * @param[in] value to remove from list.
  */
-void *smartlist_remove(smartlist *list, const void *value);
+void *smartlist_remove(smartlist *list, void *value);
 
 /** 
  * Pop the last value in the list.

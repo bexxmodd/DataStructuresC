@@ -98,6 +98,11 @@ int main()
         printf("%d, ", list3->data[i]);
     printf("\n\n");
 
+    // delete SmartList
+    smartlist_delete(list);
+    smartlist_delete(list2);
+    smartlist_delete(list3);
+
     printf("\t    END\n");
     return 0;
 }

@@ -78,14 +78,14 @@ void smartlist_dealocate(smartlist *list)
     list->capacity = new_cap;
 }
 
-void smartlist_append(smartlist *list, const void *value)
+void smartlist_append(smartlist *list, void *value)
 {
     smartlist_allocate(list, list->length);
     list->data[list->length++] = value;
 }
 
 void smartlist_insert(
-    smartlist *list, unsigned int index, const void *value)
+    smartlist *list, unsigned int index, void *value)
 {
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
@@ -100,7 +100,7 @@ void smartlist_insert(
     list->length++;
 }
 
-void smartlist_push(smartlist *list, const void *value)
+void smartlist_push(smartlist *list, void *value)
 {
     smartlist_insert(list, 0, value);
 }
@@ -123,7 +123,7 @@ int smartlist_geti(smartlist *list, void *value)
 }
 
 void smartlist_replace(
-    smartlist* list, unsigned int index, const void *value)
+    smartlist* list, unsigned int index, void *value)
 {
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
@@ -153,7 +153,7 @@ void *smartlist_removei(smartlist *list, unsigned int index)
     return val;
 }
 
-void *smartlist_remove(smartlist *list, const void *value)
+void *smartlist_remove(smartlist *list, void *value)
 {
     void *val;
     register int i;
@@ -162,7 +162,7 @@ void *smartlist_remove(smartlist *list, const void *value)
         if (list->data[i] == value)
             val = smartlist_removei(list, i);
     smartlist_dealocate(list);
-    return (val) ? val : -1;
+    return (val != NULL) ? val : NULL;
 }
 
 void smartlist_sort(smartlist* list)
