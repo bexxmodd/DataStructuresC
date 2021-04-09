@@ -1,2 +1,2 @@
 # DataStructures
-Manual Implementation of Data Structures in C
+Personal Implementation of Abstract Data Structures in C
