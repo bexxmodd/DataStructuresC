@@ -30,6 +30,7 @@ int main()
     printf("Capacity of list: %d\n", list->capacity);
     for (i = 0; i < list->length; i++)
         printf("%d, ", list->data[i]);
+    puts("\n");
     
     /********* Test get and geti *********/
     printf("get: Item on index %d is %d\n", 2, (int*) smartlist_get(list, 1));
@@ -40,14 +41,14 @@ int main()
     printf("geti: Value %d has an index %d\n", 5, smartlist_geti(list, 5));
     for (i = 0; i < list->length; i++)
         printf("%d, ", list->data[i]);
-    printf("\n");
+    puts("\n");
 
     /********* Test replace *********/
     smartlist_replace(list, 1, 21);
     printf("repalce: Now, item at index %d is %d\n", 1, list->data[1]);
     for (i = 0; i < list->length; i++)
         printf("%d, ", list->data[i]);
-    printf("\n");
+    puts("\n");
 
     /********* Test remove, removei, and pop *********/
     int r1 = smartlist_removei(list, 4);
@@ -68,6 +69,7 @@ int main()
         printf("%d, ", list->data[i]);
     printf("\n");
     printf("Length: %d; and updated Cap: %d\n", list->length, list->capacity);
+    puts("\n");
 
     /********* Test sort *********/
     smartlist_insert(list, 1, 99);
@@ -75,7 +77,7 @@ int main()
     smartlist_sort(list);
     for (i = 0; i < list->length; i++)
         printf("%d, ", list->data[i]);
-    printf("\n\n");
+    puts("\n");
 
     /********* Test merge *********/
     smartlist* list2 = new_smartlist();
@@ -88,7 +90,7 @@ int main()
     puts(" After merging two smartlists");
     for (i = 0; i < list->length; i++)
         printf("%d, ", list->data[i]);
-    printf("\n\n");
+    puts("\n");
 
     /********* Test slice *********/
     smartlist* list3 = new_smartlist();
@@ -96,7 +98,7 @@ int main()
     puts(" After getting a slice of smartlist");
     for (i = 0; i < list3->length; i++)
         printf("%d, ", list3->data[i]);
-    printf("\n\n");
+    puts("\n");
 
     // delete SmartList
     smartlist_delete(list);

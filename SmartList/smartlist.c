@@ -42,21 +42,18 @@ smartlist *new_smartlist()
     void *arr = calloc(sizeof(int), INITIAL_CAPACITY);
     list->data = arr;
     assert(list->data);
-
     list->length = 0;
     list->capacity = INITIAL_CAPACITY;
-
     return list;
 }
 
 void smartlist_allocate(smartlist *list, unsigned int size)
 {
-    if (size > list->capacity * 0.6) {
+    if (size > list->capacity * 0.7) {
         unsigned int new_cap = list->capacity;
-
-		while (new_cap * 0.6 < size)
+        // find new optimal size
+		while (new_cap * 0.7 < size)
 			new_cap *= 2;
-        
         list->data = realloc(list->data, sizeof(void*) * new_cap);
         assert(list->data);
         list->capacity = new_cap;
@@ -68,8 +65,8 @@ void smartlist_dealocate(smartlist *list)
     unsigned int new_cap = list->capacity;
     if (list->length < list->capacity / 2 
         && list->capacity > INITIAL_CAPACITY)
-        while (new_cap > list->capacity / 2)
-            new_cap /= 2;
+        while (new_cap > list->capacity / 2) 
+            new_cap /= 2; // shrink array size
 
     // new capacity shouldn't be less than INITIAL_CAPACITY
     new_cap = (new_cap > INITIAL_CAPACITY) ? new_cap : INITIAL_CAPACITY;
@@ -80,7 +77,7 @@ void smartlist_dealocate(smartlist *list)
 
 void smartlist_append(smartlist *list, void *value)
 {
-    smartlist_allocate(list, list->length);
+    smartlist_allocate(list, list->length); // check if we need extra space
     list->data[list->length++] = value;
 }
 
@@ -90,7 +87,7 @@ void smartlist_insert(
     if (index > list->length)
         INDEX_OUT_OF_BOUND(index);
     
-    // check if current capacity will suffice & allocate if not
+    // check if current capacity will suffice; allocate if not
     smartlist_allocate(list, list->length + 1);
 
     // create extra spot for a new value by shifting array by 1
@@ -115,7 +112,6 @@ void *smartlist_get(smartlist *list, unsigned int index)
 int smartlist_geti(smartlist *list, void *value)
 {
     register int i;
-
     for (i = 0; i < list->length; i++)
         if (list->data[i] == value)
             return i;
@@ -167,7 +163,8 @@ void *smartlist_remove(smartlist *list, void *value)
 
 void smartlist_sort(smartlist* list)
 {
-    qsort(list->data, list->length, sizeof(list->data[0]), _comperator);
+    qsort(list->data, list->length, 
+            sizeof(list->data[0]), _comperator);
 }
 
 void smartlist_reverse(smartlist *list)
@@ -186,7 +183,6 @@ void smartlist_reverse(smartlist *list)
 bool smartlist_contains(smartlist *list, void *value)
 {
     register int i;
-
     for (i = 0; i < list->length; i++)
         if (list->data[i] == value)
             return true;

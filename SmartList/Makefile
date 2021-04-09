@@ -1,15 +1,13 @@
-CFLAGS = -Wall -Werror -g -std=c99
+CFLAGS = -Wall -g -std=c99
+CC = clang
+SRCS = smartlist.c test.c
+OBJS = $(SRCS:.c=.o)
 
-CC_C = $(CROSS_TOOL)gcc
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(TARGETS):
-	$(CC_C) $(CFLAGS) $@.c -o $@
-
-smartlistWerror: smartlist.o test.c
-	gcc smartlist.c test.c -o test && ./test
-
-smartlistWerror: smartlist.o test.c
-	gcc $(CFLAGS) smartlist.c test.c -o test && ./test
+output: $(OBJS)
+	$(CC) $(CFLAGS) -o test $(OBJS) && ./test
 
 clean:
-	rm -rf $(TARGETS)
+	rm -rf *.o
