@@ -1,419 +1,58 @@
-==112414== Memcheck, a memory error detector
-==112414== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==112414== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==112414== Command: ./test
-==112414== 
-==112414== Invalid write of size 8
-==112414==    at 0x4014A1: smartlist_append (smartlist.c:84)
-==112414==    by 0x401C76: main (test.c:15)
-==112414==  Address 0x4a5e0a0 is 0 bytes after a block of size 16 alloc'd
-==112414==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==112414==    by 0x4011E5: new_smartlist (smartlist.c:42)
-==112414==    by 0x401C48: main (test.c:12)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E3AD8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401CEE: main (test.c:20)
-==112414==  Uninitialised value was created by a heap allocation
-==112414==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==112414==    by 0x40130C: smartlist_allocate (smartlist.c:60)
-==112414==    by 0x40147F: smartlist_append (smartlist.c:83)
-==112414==    by 0x401C84: main (test.c:16)
-==112414== 
-==112414== Use of uninitialised value of size 8
-==112414==    at 0x48C781B: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401CEE: main (test.c:20)
-==112414==  Uninitialised value was created by a heap allocation
-==112414==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==112414==    by 0x40130C: smartlist_allocate (smartlist.c:60)
-==112414==    by 0x40147F: smartlist_append (smartlist.c:83)
-==112414==    by 0x401C84: main (test.c:16)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48C782D: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401CEE: main (test.c:20)
-==112414==  Uninitialised value was created by a heap allocation
-==112414==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==112414==    by 0x40130C: smartlist_allocate (smartlist.c:60)
-==112414==    by 0x40147F: smartlist_append (smartlist.c:83)
-==112414==    by 0x401C84: main (test.c:16)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E43A8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401CEE: main (test.c:20)
-==112414==  Uninitialised value was created by a heap allocation
-==112414==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==112414==    by 0x40130C: smartlist_allocate (smartlist.c:60)
-==112414==    by 0x40147F: smartlist_append (smartlist.c:83)
-==112414==    by 0x401C84: main (test.c:16)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E386E: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401CEE: main (test.c:20)
-==112414==  Uninitialised value was created by a heap allocation
-==112414==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==112414==    by 0x40130C: smartlist_allocate (smartlist.c:60)
-==112414==    by 0x40147F: smartlist_append (smartlist.c:83)
-==112414==    by 0x401C84: main (test.c:16)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E3AD8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401DBC: main (test.c:32)
-==112414== 
-==112414== Use of uninitialised value of size 8
-==112414==    at 0x48C781B: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401DBC: main (test.c:32)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48C782D: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401DBC: main (test.c:32)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E43A8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401DBC: main (test.c:32)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E386E: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401DBC: main (test.c:32)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E3AD8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401E3A: main (test.c:38)
-==112414== 
-==112414== Use of uninitialised value of size 8
-==112414==    at 0x48C781B: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401E3A: main (test.c:38)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48C782D: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401E3A: main (test.c:38)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E43A8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401E3A: main (test.c:38)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E386E: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401E3A: main (test.c:38)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x401666: smartlist_geti (smartlist.c:120)
-==112414==    by 0x401E6C: main (test.c:41)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E3AD8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401EBB: main (test.c:43)
-==112414== 
-==112414== Use of uninitialised value of size 8
-==112414==    at 0x48C781B: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401EBB: main (test.c:43)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48C782D: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401EBB: main (test.c:43)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E43A8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401EBB: main (test.c:43)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E386E: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401EBB: main (test.c:43)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E3AD8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401F46: main (test.c:50)
-==112414== 
-==112414== Use of uninitialised value of size 8
-==112414==    at 0x48C781B: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401F46: main (test.c:50)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48C782D: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401F46: main (test.c:50)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E43A8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401F46: main (test.c:50)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E386E: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401F46: main (test.c:50)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E3AD8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401FC9: main (test.c:57)
-==112414== 
-==112414== Use of uninitialised value of size 8
-==112414==    at 0x48C781B: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401FC9: main (test.c:57)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48C782D: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401FC9: main (test.c:57)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E43A8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401FC9: main (test.c:57)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E386E: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x401FC9: main (test.c:57)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E3AD8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x40204E: main (test.c:63)
-==112414== 
-==112414== Use of uninitialised value of size 8
-==112414==    at 0x48C781B: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x40204E: main (test.c:63)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48C782D: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x40204E: main (test.c:63)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E43A8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x40204E: main (test.c:63)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E386E: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x40204E: main (test.c:63)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E3AD8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x4020CE: main (test.c:69)
-==112414== 
-==112414== Use of uninitialised value of size 8
-==112414==    at 0x48C781B: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x4020CE: main (test.c:69)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48C782D: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x4020CE: main (test.c:69)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E43A8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x4020CE: main (test.c:69)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E386E: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x4020CE: main (test.c:69)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48B1871: msort_with_tmp.part.0 (msort.c:83)
-==112414==    by 0x48B1821: msort_with_tmp (msort.c:45)
-==112414==    by 0x48B1821: msort_with_tmp.part.0 (msort.c:54)
-==112414==    by 0x48B1821: msort_with_tmp (msort.c:45)
-==112414==    by 0x48B1821: msort_with_tmp.part.0 (msort.c:54)
-==112414==    by 0x48B1EE5: msort_with_tmp (msort.c:45)
-==112414==    by 0x48B1EE5: qsort_r (msort.c:297)
-==112414==    by 0x401912: smartlist_sort (smartlist.c:170)
-==112414==    by 0x402152: main (test.c:77)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48B1871: msort_with_tmp.part.0 (msort.c:83)
-==112414==    by 0x48B1821: msort_with_tmp (msort.c:45)
-==112414==    by 0x48B1821: msort_with_tmp.part.0 (msort.c:54)
-==112414==    by 0x48B1EE5: msort_with_tmp (msort.c:45)
-==112414==    by 0x48B1EE5: qsort_r (msort.c:297)
-==112414==    by 0x401912: smartlist_sort (smartlist.c:170)
-==112414==    by 0x402152: main (test.c:77)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48B1871: msort_with_tmp.part.0 (msort.c:83)
-==112414==    by 0x48B1EE5: msort_with_tmp (msort.c:45)
-==112414==    by 0x48B1EE5: qsort_r (msort.c:297)
-==112414==    by 0x401912: smartlist_sort (smartlist.c:170)
-==112414==    by 0x402152: main (test.c:77)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E3AD8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x402189: main (test.c:79)
-==112414== 
-==112414== Use of uninitialised value of size 8
-==112414==    at 0x48C781B: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x402189: main (test.c:79)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48C782D: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x402189: main (test.c:79)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E43A8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x402189: main (test.c:79)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E386E: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x402189: main (test.c:79)
-==112414== 
-==112414== Invalid write of size 8
-==112414==    at 0x4014A1: smartlist_append (smartlist.c:84)
-==112414==    by 0x4021DE: main (test.c:86)
-==112414==  Address 0x4a5f600 is 0 bytes after a block of size 16 alloc'd
-==112414==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==112414==    by 0x4011E5: new_smartlist (smartlist.c:42)
-==112414==    by 0x4021B0: main (test.c:83)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E3AD8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x40223F: main (test.c:92)
-==112414== 
-==112414== Use of uninitialised value of size 8
-==112414==    at 0x48C781B: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x40223F: main (test.c:92)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48C782D: _itoa_word (_itoa.c:179)
-==112414==    by 0x48E36F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x40223F: main (test.c:92)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E43A8: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x40223F: main (test.c:92)
-==112414== 
-==112414== Conditional jump or move depends on uninitialised value(s)
-==112414==    at 0x48E386E: __vfprintf_internal (vfprintf-internal.c:1687)
-==112414==    by 0x48CDEBE: printf (printf.c:33)
-==112414==    by 0x40223F: main (test.c:92)
-==112414== 
-==112414== Invalid write of size 8
-==112414==    at 0x4014A1: smartlist_append (smartlist.c:84)
-==112414==    by 0x401B96: smartlist_slice (smartlist.c:218)
-==112414==    by 0x40227D: main (test.c:97)
-==112414==  Address 0x4a5f900 is 0 bytes after a block of size 16 alloc'd
-==112414==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==112414==    by 0x4011E5: new_smartlist (smartlist.c:42)
-==112414==    by 0x401B42: smartlist_slice (smartlist.c:214)
-==112414==    by 0x40227D: main (test.c:97)
-==112414== 
-==112414== Invalid read of size 8
-==112414==    at 0x4022B3: main (test.c:100)
-==112414==  Address 0x4a5f900 is 0 bytes after a block of size 16 alloc'd
-==112414==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==112414==    by 0x4011E5: new_smartlist (smartlist.c:42)
-==112414==    by 0x401B42: smartlist_slice (smartlist.c:214)
-==112414==    by 0x40227D: main (test.c:97)
-==112414== 
-cap size: 8	 and allocated: 64
+==114014== Memcheck, a memory error detector
+==114014== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==114014== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==114014== Command: ./test
+==114014== 
 Size of list: 4
 Capacity of list: 8
-2, 3, 0, 8, 
-cap size: 16	 and allocated: 128
+2, 3, 5, 8, 
 Size of list: 8
 Capacity of list: 16
-11, 10, 13, 53, 2, 3, 0, 8, 
+11, 10, 13, 53, 2, 3, 5, 8, 
 
 get: Item on index 2 is 10
-11, 10, 13, 53, 2, 3, 0, 8, 
-geti: Value 5 has an index -1
-11, 10, 13, 53, 2, 3, 0, 8, 
+11, 10, 13, 53, 2, 3, 5, 8, 
+geti: Value 5 has an index 6
+11, 10, 13, 53, 2, 3, 5, 8, 
 
 repalce: Now, item at index 1 is 21
-11, 21, 13, 53, 2, 3, 0, 8, 
+11, 21, 13, 53, 2, 3, 5, 8, 
 
 removei: Removed item is 2, and the length of a list is 7
-11, 21, 13, 53, 3, 0, 8, 
+11, 21, 13, 53, 3, 5, 8, 
 remove: Removed item is 3, and the length of a list is 6
-11, 21, 13, 53, 0, 8, 
+11, 21, 13, 53, 5, 8, 
 pop: poped item is 8, and the length of a list is 5
-11, 21, 13, 53, 0, 
+11, 21, 13, 53, 5, 
 Length: 5; and updated Cap: 8
 
 
-cap size: 16	 and allocated: 128
  Sorting...
-99, 53, 21, 13, 11, 0, 
+99, 53, 21, 13, 11, 5, 
 
-cap size: 8	 and allocated: 64
-cap size: 32	 and allocated: 256
  After merging two smartlists
-99, 53, 21, 13, 11, 0, 313, 214, 0, 511, 
+99, 53, 21, 13, 11, 5, 313, 214, 218, 511, 
 
  After getting a slice of smartlist
 21, 13, 11, 
 
 	    END
-==112414== 
-==112414== HEAP SUMMARY:
-==112414==     in use at exit: 32 bytes in 2 blocks
-==112414==   total heap usage: 19 allocs, 17 frees, 5,184 bytes allocated
-==112414== 
-==112414== LEAK SUMMARY:
-==112414==    definitely lost: 16 bytes in 1 blocks
-==112414==    indirectly lost: 16 bytes in 1 blocks
-==112414==      possibly lost: 0 bytes in 0 blocks
-==112414==    still reachable: 0 bytes in 0 blocks
-==112414==         suppressed: 0 bytes in 0 blocks
-==112414== Rerun with --leak-check=full to see details of leaked memory
-==112414== 
-==112414== For lists of detected and suppressed errors, rerun with: -s
-==112414== ERROR SUMMARY: 63 errors from 58 contexts (suppressed: 0 from 0)
+==114014== 
+==114014== HEAP SUMMARY:
+==114014==     in use at exit: 32 bytes in 2 blocks
+==114014==   total heap usage: 19 allocs, 17 frees, 4,992 bytes allocated
+==114014== 
+==114014== 32 (16 direct, 16 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
+==114014==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==114014==    by 0x4011D1: new_smartlist (smartlist.c:41)
+==114014==    by 0x402246: main (test.c:96)
+==114014== 
+==114014== LEAK SUMMARY:
+==114014==    definitely lost: 16 bytes in 1 blocks
+==114014==    indirectly lost: 16 bytes in 1 blocks
+==114014==      possibly lost: 0 bytes in 0 blocks
+==114014==    still reachable: 0 bytes in 0 blocks
+==114014==         suppressed: 0 bytes in 0 blocks
+==114014== 
+==114014== For lists of detected and suppressed errors, rerun with: -s
+==114014== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

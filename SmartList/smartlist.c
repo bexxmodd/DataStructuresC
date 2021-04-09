@@ -54,7 +54,8 @@ void smartlist_allocate(smartlist *list, unsigned int size)
         // find new optimal size
 		while (new_cap * 0.7 < size)
 			new_cap *= 2;
-        list->data = realloc(list->data, sizeof(void*) * new_cap);
+
+        list->data = realloc(list->data, new_cap * sizeof(void*));
         assert(list->data);
         list->capacity = new_cap;
     }
@@ -77,7 +78,7 @@ void smartlist_dealocate(smartlist *list)
 
 void smartlist_append(smartlist *list, void *value)
 {
-    smartlist_allocate(list, list->length); // check if we need extra space
+    smartlist_allocate(list, list->length + 1); // check if we need extra space
     list->data[list->length++] = value;
 }
 
