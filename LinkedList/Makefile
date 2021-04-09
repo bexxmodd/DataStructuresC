@@ -1,6 +1,6 @@
 CFLAGS = -Wall -g -std=c99
 CC = clang
-SRCS = smartlist.c test.c
+SRCS = linkedlist.c test.c
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
