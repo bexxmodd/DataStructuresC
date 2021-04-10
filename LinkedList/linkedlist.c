@@ -14,14 +14,14 @@ node *create_node(void *val)
     return new_node;
 }
 
-node *create_linkedlist(int *arr, unsigned int size)
+node *create_linkedlist(void **arr, unsigned int size)
 {
     if (arr == NULL)
         ERROR("can't convert empty array to a linked list");
-    node *head = create_node(arr[0]);
+    node *head = create_node((void*) arr[0]);
     int i;
     for (i = 1; i < size; i++)
-        append_node(head, arr[i]);
+        append_node(head, (void*) arr[0]);
     return head;
 }
 
@@ -30,11 +30,11 @@ node *append_node(node *n, void *val)
     if (val == NULL)
         ERROR("can't append NULL value");
 
-    node *new_node = create_node(val);
     if (n == NULL) {
-        n = new_node; //if list is empty new_node is head
-        return n;
+        ERROR("Please create a head node first");
     }
+
+    node *new_node = create_node(val);
 
     //< travers till the end of the list
     for (; n->next != NULL; n = n->next);

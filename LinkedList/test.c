@@ -11,9 +11,9 @@ int main()
     // append_node(head, 6);
     // append_node(head, 8);
     // print_nodes(head);
-    int nums[] = {542, 123, 6343, 1231, 234, 1231, 973};
-    node *llist = create_linkedlist(nums, 7);
-    print_nodes(llist);
+    // int nums[] = {542, 123, 6343, 1231, 234, 1231, 973};
+    // node *llist = create_linkedlist(nums, 7);
+    // print_nodes(llist);
 
     // push_node(&head, 2);
     // push_node(&head, 1);
