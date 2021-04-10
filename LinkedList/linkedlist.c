@@ -15,18 +15,32 @@ node *create_node(void *val)
 }
 
 /// TODO This needs correction
-node *create_linkedlist(void **arr, unsigned int size)
+node *create_linkedlist(int *arr, unsigned int size)
 {
     if (arr == NULL)
         ERROR("can't convert empty array to a linked list");
     node *head = create_node((void*) arr[0]);
-    printf("at %d => %d\n", 0, (int) arr[1]);
     int i;
     for (i = 1; i < size; i++) {
-        printf("at %d => %d\n", i, (int*) arr[0]);
-        append_node(head, (void*) arr[i]);
+        append_node(head, arr[i]);
     }
     return head;
+}
+
+int count_nodes(node *n)
+{
+    int i = 0;
+    for (; n != NULL; n = n->next, i++);
+    return i;
+}
+
+int count_occurances(node *nd, void *val)
+{
+    int i = 0;
+    for (; nd != NULL; nd = nd->next)
+        if (nd->value == val)
+            i++;
+    return i;
 }
 
 node *append_node(node *n, void *val)

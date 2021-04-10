@@ -9,19 +9,20 @@ int main()
         to see which has a memmory leak */
     //------------------------------------
 
-    node *head = create_node(1);
-    append_node(head, 3);
-    append_node(head, 5);
-    append_node(head, 6);
-    append_node(head, 8);
-    print_nodes(head);
-    // int nums[] = {542, 123, 634, 231, 234, 131, 973};
-    // node *llist = create_linkedlist(nums, 7);
-    // print_nodes(llist);
-    reverse_nodes(&head);
-    print_nodes(head);
-    clear_nodes(&head);
+    // node *head = create_node(1);
+    // append_node(head, 3);
+    // append_node(head, 5);
+    // append_node(head, 6);
+    // append_node(head, 8);
+    // print_nodes(head);
+    int nums[] = {542, 123, 634, 231, 234, 131, 973};
+    node *llist = create_linkedlist(nums, 7);
+    print_nodes(llist);
+    // reverse_nodes(&head);
+    // print_nodes(head);
 
+    // printf("length: %d\n", get_length(head));
+    // clear_nodes(&head);
     // push_node(&head, 2);
     // push_node(&head, 1);
     // print_nodes(head);
