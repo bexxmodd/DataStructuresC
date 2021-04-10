@@ -15,8 +15,8 @@ int main()
     // append_node(head, 6);
     // append_node(head, 8);
     // print_nodes(head);
-    int nums[] = {542, 123, 634, 231, 234, 131, 973};
-    node *llist = create_linkedlist(nums, 7);
+    int nums[] = {54.2, 12.3, 6.34, 23.1, 2.34, 13.1, 97.3};
+    node *llist = create_linkedlist_float(nums, 7);
     print_nodes(llist);
     // reverse_nodes(&head);
     // print_nodes(head);

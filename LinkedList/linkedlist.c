@@ -14,12 +14,12 @@ node *create_node(void *val)
     return new_node;
 }
 
-/// TODO This needs correction
 node *create_linkedlist(int *arr, unsigned int size)
 {
     if (arr == NULL)
         ERROR("can't convert empty array to a linked list");
-    node *head = create_node((void*) arr[0]);
+    float *fl = arr;
+    node *head = create_node(arr[0]);
     int i;
     for (i = 1; i < size; i++) {
         append_node(head, arr[i]);

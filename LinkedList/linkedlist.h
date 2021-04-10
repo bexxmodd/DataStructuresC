@@ -8,7 +8,7 @@ typedef struct node {
 node *create_node(void *val);
 node *append_node(node *n, void *val);
 node *push_node(node **n, void *val);
-node *create_linkedlist(int *arr, unsigned int size); // update to void
+node *create_linkedlist(int *arr, unsigned int size);
 node *reverse_nodes(node **n);
 int add_node(node *n, void *val, unsigned int index);
 int count_nodes(node *n);
