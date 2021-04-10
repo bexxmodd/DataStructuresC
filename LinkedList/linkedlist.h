@@ -9,6 +9,7 @@ node *create_node(void *val);
 node *append_node(node *n, void *val);
 node *push_node(node **n, void *val);
 node *create_linkedlist(void **arr, unsigned int size);
+node *reverse_nodes(node **n);
 int add_node(node *n, void *val, unsigned int index);
 void *pop_node(node **n);
 void *rightpop_node(node *n);

@@ -14,14 +14,18 @@ node *create_node(void *val)
     return new_node;
 }
 
+/// TODO This needs correction
 node *create_linkedlist(void **arr, unsigned int size)
 {
     if (arr == NULL)
         ERROR("can't convert empty array to a linked list");
     node *head = create_node((void*) arr[0]);
+    printf("at %d => %d\n", 0, (int) arr[1]);
     int i;
-    for (i = 1; i < size; i++)
-        append_node(head, (void*) arr[0]);
+    for (i = 1; i < size; i++) {
+        printf("at %d => %d\n", i, (int*) arr[0]);
+        append_node(head, (void*) arr[i]);
+    }
     return head;
 }
 
@@ -33,7 +37,6 @@ node *append_node(node *n, void *val)
     if (n == NULL) {
         ERROR("Please create a head node first");
     }
-
     node *new_node = create_node(val);
 
     //< travers till the end of the list
@@ -144,6 +147,22 @@ bool contains_node(node *n, void *val)
         if (n->value == val)
             return true;
     return false;
+}
+
+node *reverse_nodes(node **n)
+{
+    if (*n == NULL)
+        return NULL;
+    node *prev = NULL;
+    node *cur = *n;
+    while (cur != NULL) {
+        node *next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+    *n = prev;
+    return *n;
 }
 
 void clear_nodes(node **n)
