@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Vec.dir/main.cpp.o -o Vec 
