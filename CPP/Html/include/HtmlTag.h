@@ -29,7 +29,7 @@ public:
 
 	HtmlTag(std::string element, bool isOpenTag);
 	bool matches(const HtmlTag &other);
-	bool selfClosing();
+	[[nodiscard]] bool selfClosing() const;
 	[[nodiscard]] bool isOpenTag() const;
 	bool operator==(const HtmlTag &other);
 	friend std::ostream &operator<<(std::ostream &os, HtmlTag const &tag) {

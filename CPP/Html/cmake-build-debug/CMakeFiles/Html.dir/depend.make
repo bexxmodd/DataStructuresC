@@ -4,6 +4,9 @@
 CMakeFiles/Html.dir/src/HtmlTag.cpp.o: \
  ../include/HtmlTag.h \
  ../src/HtmlTag.cpp
+CMakeFiles/Html.dir/src/HtmlValidator.cpp.o: \
+ ../include/HtmlTag.h \
+ ../src/HtmlValidator.cpp
 CMakeFiles/Html.dir/src/main.cpp.o: \
  ../include/HtmlTag.h \
  ../src/main.cpp
