@@ -4,43 +4,75 @@
 
 template<typename T> class Vec {
 private:
-	unsigned size = 0;
+	unsigned int m_Capacity = 4;
+	unsigned int m_Size = 0;
 	T *data;
 
-	void _increase_capacity() {
-		T *new_arr = new T[2 * size];
-		memcpy(data, new_arr, size);
-		data = new_arr;
+	void _increaseCapacity() {
+		m_Capacity *= 2;
+		T *newArr = new T[m_Capacity];
+		memcpy(newArr, data, sizeof(T) * m_Size);
 		delete[] data;
+		data = newArr;
 	}
 
-	int _size() {
-		return sizeof data / sizeof(data[0]);
+	void _shrinkCapacity() {
+		T *newArr = new T[m_Capacity / 2];
+		memcpy(newArr, data, sizeof(T) * m_Size);
+		delete[] data;
+		data = newArr;
 	}
 
 public:
-	static const unsigned int INITIAL_CAPACITY = 4;
+	Vec<T>() : data(new T[m_Capacity]) { }
 
-	Vec<T>() : data(new T[INITIAL_CAPACITY]) { }
-
-	explicit Vec<T>(T *arr) {
+	Vec<T>(T *arr) {
 		if (arr != nullptr) {
-			int len = sizeof arr / sizeof(arr[0]);
-			data = new T[len];
-			memcpy(data, arr, len);
-			size = len;
+			int len = sizeof arr / sizeof(arr[0]) + 1;
+			while (m_Capacity < len)
+				m_Capacity *= 2;
+			data = new T[m_Capacity];
+			memcpy(data, arr, sizeof(T) * len);
+			m_Size = len;
 		}
 	}
 
 	void add(T value) {
-		if (size == _size()) {
-			_increase_capacity();
+		if (m_Size == m_Capacity) {
+			_increaseCapacity();
 		}
-		data[size++] = value;
+		data[m_Size++] = value;
 	}
 
-	int length() {
-		return size;
+	unsigned int size() {
+		return m_Size;
+	}
+
+	T get(unsigned int index) {
+		assert(index < m_Size);
+		return data[index];
+	}
+
+	T remove(unsigned int index) {
+		assert(index < m_Size && index >= 0);
+
+		T target = data[index];
+		for (int i = 0; i < m_Size - 1; i++) {
+			data[i] = data[i + 1];
+		}
+		--m_Size;
+
+		if (m_Capacity <= m_Size)
+			_shrinkCapacity();
+		return target;
+	}
+
+	void print() {
+		std::cout << "[";
+		int i = 0;
+		while (i < m_Size - 1)
+			std::cout << data[i++] << ", ";
+		std::cout << data[i] << "]" << std::endl;
 	}
 };
 
@@ -51,6 +83,17 @@ int main() {
 	vec->add(9);
 	vec->add(2);
 	vec->add(24);
-	assert(5 == vec->length());
+	assert(5 == vec->size());
+	vec->print();
+
+	vec->remove(2);
+	vec->remove(1);
+	vec->remove(0);
+	assert(2 == vec->size());
+
+	auto *arr = new float[3] {2.2, 1.0, 3.6};
+	auto *v2 = new Vec<float>(arr);
+	assert(3 == v2->size());
+	v2->print();
 	return 0;
 }

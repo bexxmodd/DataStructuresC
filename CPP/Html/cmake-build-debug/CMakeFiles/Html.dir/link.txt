@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Html.dir/src/main.cpp.o CMakeFiles/Html.dir/src/HtmlTag.cpp.o CMakeFiles/Html.dir/src/HtmlValidator.cpp.o -o Html 

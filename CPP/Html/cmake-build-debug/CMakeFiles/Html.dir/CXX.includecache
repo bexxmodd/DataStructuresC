@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bexx/Projects/DataStructuresC/CPP/Html/include/HtmlTag.h
+cstring
+-
+iostream
+-
+string
+-
+unordered_set
+-
+utility
+-
+queue
+-
+
+/home/bexx/Projects/DataStructuresC/CPP/Html/src/HtmlTag.cpp
+../include/HtmlTag.h
+/home/bexx/Projects/DataStructuresC/CPP/Html/include/HtmlTag.h
+regex
+-
+string
+-
+
+/home/bexx/Projects/DataStructuresC/CPP/Html/src/main.cpp
+../include/HtmlTag.h
+/home/bexx/Projects/DataStructuresC/CPP/Html/include/HtmlTag.h
+cassert
+-
+queue
+-
+stack
+-
+
