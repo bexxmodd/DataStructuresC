@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Word.h
+string
+-
+iostream
+-
+utility
+-
+
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Word.cpp
+../include/Word.h
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Word.h
+cstring
+-
+
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/main.cpp
+iostream
+-
+
