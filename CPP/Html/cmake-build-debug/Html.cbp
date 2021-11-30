@@ -85,6 +85,9 @@
 		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/Html/include/HtmlTag.h">
 			<Option target="Html"/>
 		</Unit>
+		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/Html/include/HtmlValidator.h">
+			<Option target="Html"/>
+		</Unit>
 		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/Html/src/HtmlTag.cpp">
 			<Option target="Html"/>
 		</Unit>

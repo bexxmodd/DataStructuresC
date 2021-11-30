@@ -20,11 +20,23 @@ utility
 queue
 -
 
-/home/bexx/Projects/DataStructuresC/CPP/Html/src/HtmlTag.cpp
+/home/bexx/Projects/DataStructuresC/CPP/Html/include/HtmlValidator.h
+HtmlTag.h
+/home/bexx/Projects/DataStructuresC/CPP/Html/include/HtmlTag.h
+queue
+-
+stack
+-
+
+/home/bexx/Projects/DataStructuresC/CPP/Html/src/main.cpp
 ../include/HtmlTag.h
 /home/bexx/Projects/DataStructuresC/CPP/Html/include/HtmlTag.h
-regex
+../include/HtmlValidator.h
+/home/bexx/Projects/DataStructuresC/CPP/Html/include/HtmlValidator.h
+cassert
 -
-string
+queue
+-
+stack
 -
 

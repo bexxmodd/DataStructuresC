@@ -11,7 +11,6 @@
 #ifndef HTMLTAG_H
 #define HTMLTAG_H
 
-namespace HtmlData {}
 class HtmlTag {
 private:
 	const std::string m_Element;
@@ -28,6 +27,7 @@ public:
 	inline static const std::string WHITESPACE = " \f\n\r\t";
 
 	HtmlTag(std::string element, bool isOpenTag);
+	~HtmlTag() = default;
 	bool matches(const HtmlTag &other);
 	[[nodiscard]] bool selfClosing() const;
 	[[nodiscard]] bool isOpenTag() const;

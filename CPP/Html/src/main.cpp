@@ -1,4 +1,5 @@
 #include "../include/HtmlTag.h"
+#include "../include/HtmlValidator.h"
 #include <cassert>
 #include <queue>
 #include <stack>
@@ -24,8 +25,24 @@ void isValidHtmlCommentTest() {
 	}
 }
 
+void isValidFunctionTest() {
+	tags = "<html><body><h1></h1><p>paragraph</p></body></html>";
+	queue = HtmlTag::tokenize(&tags);
+	assert(valid(&queue).empty());
+}
+
+void getHtmlTagsTest() {
+	queue = getTagsFromHtmlFile("../test/bexxmodd.html");
+	while (!queue.empty()) {
+		std::cout << *queue.front() << std::endl;
+		queue.pop();
+	}
+}
+
 int main() {
 	isValidHtmlTest();
 	isValidHtmlCommentTest();
+	isValidFunctionTest();
+	getHtmlTagsTest();
 	return 0;
 }
