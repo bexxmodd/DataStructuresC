@@ -129,6 +129,30 @@ SemanticAnalyzer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SemanticAnalyzer.dir/build.make CMakeFiles/SemanticAnalyzer.dir/build
 .PHONY : SemanticAnalyzer/fast
 
+src/Analyzer.o: src/Analyzer.cpp.o
+.PHONY : src/Analyzer.o
+
+# target to build an object file
+src/Analyzer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SemanticAnalyzer.dir/build.make CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.o
+.PHONY : src/Analyzer.cpp.o
+
+src/Analyzer.i: src/Analyzer.cpp.i
+.PHONY : src/Analyzer.i
+
+# target to preprocess a source file
+src/Analyzer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SemanticAnalyzer.dir/build.make CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.i
+.PHONY : src/Analyzer.cpp.i
+
+src/Analyzer.s: src/Analyzer.cpp.s
+.PHONY : src/Analyzer.s
+
+# target to generate assembly for a file
+src/Analyzer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SemanticAnalyzer.dir/build.make CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.s
+.PHONY : src/Analyzer.cpp.s
+
 src/Sentance.o: src/Sentance.cpp.o
 .PHONY : src/Sentance.o
 
@@ -210,6 +234,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SemanticAnalyzer"
+	@echo "... src/Analyzer.o"
+	@echo "... src/Analyzer.i"
+	@echo "... src/Analyzer.s"
 	@echo "... src/Sentance.o"
 	@echo "... src/Sentance.i"
 	@echo "... src/Sentance.s"

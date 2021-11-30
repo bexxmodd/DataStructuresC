@@ -88,6 +88,12 @@
 		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Word.h">
 			<Option target="SemanticAnalyzer"/>
 		</Unit>
+		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Analyzer.cpp">
+			<Option target="SemanticAnalyzer"/>
+		</Unit>
+		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Analyzer.h">
+			<Option target="SemanticAnalyzer"/>
+		</Unit>
 		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentance.cpp">
 			<Option target="SemanticAnalyzer"/>
 		</Unit>

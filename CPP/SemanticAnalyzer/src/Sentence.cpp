@@ -2,14 +2,14 @@
 // Created by bexx on 11/28/21.
 //
 
+#include "../include/Sentence.h"
 #include <cstring>
-#include "../include/Sentance.h"
 
-Sentance::Sentance(int _score, std::string txt)
+Sentence::Sentence(int _score, std::string txt)
 	: score(_score), text(std::move(txt)) {}
-bool Sentance::operator==(const Sentance &other) {
+bool Sentence::operator==(const Sentence &other) {
 	return strcmp(text.c_str(), other.text.c_str());
 }
-int Sentance::compare(Sentance &other) {
+int Sentence::compare(Sentence &other) {
 	return score - other.score;
 }
