@@ -6,6 +6,26 @@
 
 #IncludeRegexTransform: 
 
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Analyzer.h
+Sentence.h
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Sentence.h
+Word.h
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Word.h
+cstring
+-
+map
+-
+unordered_map
+-
+unordered_set
+-
+vector
+-
+
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Sentence.h
+../include/Word.h
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Word.h
+
 /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Word.h
 string
 -
@@ -14,13 +34,27 @@ iostream
 utility
 -
 
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Analyzer.cpp
+../include/Analyzer.h
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Analyzer.h
+string
+-
+iostream
+-
+fstream
+-
+algorithm
+-
+
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentence.cpp
+../include/Sentence.h
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Sentence.h
+cstring
+-
+
 /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Word.cpp
 ../include/Word.h
 /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Word.h
 cstring
--
-
-/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/main.cpp
-iostream
 -
 

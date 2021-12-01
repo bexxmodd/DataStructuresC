@@ -20,7 +20,7 @@ namespace Analyzer {
 	bool validSentence(const std::string &line);
 	std::unordered_set<Word *> getWords(const std::vector<Sentence *> &sentences);
 	Map calculateScores(const std::unordered_set<Word *> &words);
-	double computeSentenceScore(const std::string &sentence, const Map& wordScores);
+	double computeSentenceScore(std::string *sentence, const Map& wordScores);
 }
 
 #endif//SEMANTICANALYZER_ANALYZER_H

@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Analyzer.cpp" "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug/CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.o"
-  "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentance.cpp" "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug/CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.o"
+  "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentence.cpp" "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug/CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.o"
   "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Word.cpp" "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug/CMakeFiles/SemanticAnalyzer.dir/src/Word.cpp.o"
   "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/main.cpp" "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug/CMakeFiles/SemanticAnalyzer.dir/src/main.cpp.o"
   )

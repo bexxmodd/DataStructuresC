@@ -82,7 +82,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Sentance.h">
+		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Analyzer.h">
+			<Option target="SemanticAnalyzer"/>
+		</Unit>
+		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Sentence.h">
 			<Option target="SemanticAnalyzer"/>
 		</Unit>
 		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/include/Word.h">
@@ -91,10 +94,7 @@
 		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Analyzer.cpp">
 			<Option target="SemanticAnalyzer"/>
 		</Unit>
-		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Analyzer.h">
-			<Option target="SemanticAnalyzer"/>
-		</Unit>
-		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentance.cpp">
+		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentence.cpp">
 			<Option target="SemanticAnalyzer"/>
 		</Unit>
 		<Unit filename="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Word.cpp">

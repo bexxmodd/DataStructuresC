@@ -92,18 +92,18 @@ CMakeFiles/SemanticAnalyzer.dir/src/Word.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SemanticAnalyzer.dir/src/Word.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Word.cpp -o CMakeFiles/SemanticAnalyzer.dir/src/Word.cpp.s
 
-CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.o: CMakeFiles/SemanticAnalyzer.dir/flags.make
-CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.o: ../src/Sentance.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.o -c /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentance.cpp
+CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.o: CMakeFiles/SemanticAnalyzer.dir/flags.make
+CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.o: ../src/Sentence.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.o -c /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentence.cpp
 
-CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentance.cpp > CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.i
+CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentence.cpp > CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.i
 
-CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentance.cpp -o CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.s
+CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentence.cpp -o CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.s
 
 CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.o: CMakeFiles/SemanticAnalyzer.dir/flags.make
 CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.o: ../src/Analyzer.cpp
@@ -122,7 +122,7 @@ CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.s: cmake_force
 SemanticAnalyzer_OBJECTS = \
 "CMakeFiles/SemanticAnalyzer.dir/src/main.cpp.o" \
 "CMakeFiles/SemanticAnalyzer.dir/src/Word.cpp.o" \
-"CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.o" \
+"CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.o" \
 "CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.o"
 
 # External object files for target SemanticAnalyzer
@@ -130,7 +130,7 @@ SemanticAnalyzer_EXTERNAL_OBJECTS =
 
 SemanticAnalyzer: CMakeFiles/SemanticAnalyzer.dir/src/main.cpp.o
 SemanticAnalyzer: CMakeFiles/SemanticAnalyzer.dir/src/Word.cpp.o
-SemanticAnalyzer: CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.o
+SemanticAnalyzer: CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.o
 SemanticAnalyzer: CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.o
 SemanticAnalyzer: CMakeFiles/SemanticAnalyzer.dir/build.make
 SemanticAnalyzer: CMakeFiles/SemanticAnalyzer.dir/link.txt

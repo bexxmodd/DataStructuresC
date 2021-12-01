@@ -153,29 +153,29 @@ src/Analyzer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SemanticAnalyzer.dir/build.make CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.s
 .PHONY : src/Analyzer.cpp.s
 
-src/Sentance.o: src/Sentance.cpp.o
-.PHONY : src/Sentance.o
+src/Sentence.o: src/Sentence.cpp.o
+.PHONY : src/Sentence.o
 
 # target to build an object file
-src/Sentance.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SemanticAnalyzer.dir/build.make CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.o
-.PHONY : src/Sentance.cpp.o
+src/Sentence.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SemanticAnalyzer.dir/build.make CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.o
+.PHONY : src/Sentence.cpp.o
 
-src/Sentance.i: src/Sentance.cpp.i
-.PHONY : src/Sentance.i
+src/Sentence.i: src/Sentence.cpp.i
+.PHONY : src/Sentence.i
 
 # target to preprocess a source file
-src/Sentance.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SemanticAnalyzer.dir/build.make CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.i
-.PHONY : src/Sentance.cpp.i
+src/Sentence.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SemanticAnalyzer.dir/build.make CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.i
+.PHONY : src/Sentence.cpp.i
 
-src/Sentance.s: src/Sentance.cpp.s
-.PHONY : src/Sentance.s
+src/Sentence.s: src/Sentence.cpp.s
+.PHONY : src/Sentence.s
 
 # target to generate assembly for a file
-src/Sentance.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SemanticAnalyzer.dir/build.make CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.s
-.PHONY : src/Sentance.cpp.s
+src/Sentence.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SemanticAnalyzer.dir/build.make CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.s
+.PHONY : src/Sentence.cpp.s
 
 src/Word.o: src/Word.cpp.o
 .PHONY : src/Word.o
@@ -237,9 +237,9 @@ help:
 	@echo "... src/Analyzer.o"
 	@echo "... src/Analyzer.i"
 	@echo "... src/Analyzer.s"
-	@echo "... src/Sentance.o"
-	@echo "... src/Sentance.i"
-	@echo "... src/Sentance.s"
+	@echo "... src/Sentence.o"
+	@echo "... src/Sentence.i"
+	@echo "... src/Sentence.s"
 	@echo "... src/Word.o"
 	@echo "... src/Word.i"
 	@echo "... src/Word.s"

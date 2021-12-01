@@ -11,11 +11,11 @@
 
 class Word {
 private:
-	std::string text;
 	unsigned int count;
 	int total;
 
 public:
+	std::string text;
 	explicit Word(std::string txt);
 	void increateTotal(int value);
 	double score();

@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 
 typedef std::tuple<std::string, std::string> Tuple;
 static Tuple split(std::string &src, const char delim) {
@@ -54,11 +55,27 @@ namespace Analyzer {
 
 	typedef std::unordered_map<std::string, double> Map;
 	 Map calculateScores(const std::unordered_set<Word *> &words) {
-		;
+		 Map map;
+		 if (words.empty())
+			 return map;
+		 for (auto& word : words) {
+			 if (!word->text.empty() || std::isalpha(word->text[0])) {
+				 std::transform(word->text.begin(), word->text.end(), word->text.begin(), tolower);
+				 map.insert({ word->text, word->score() });
+			 }
+		 }
+		 return map;
 	}
 
-	double computeSentenceScore(const std::string &sentence,
+	double computeSentenceScore(std::string *sentence,
 								  const Map& wordScores) {
+		double score = 0;
+		int size = 0;
+		if (wordScores.empty() || sentence->empty())
+			return score;
+
+		// overload split to return all the strings split on delimiter
+		auto splits = split(*sentence, ' ');
 		return 0;
 	}
 }

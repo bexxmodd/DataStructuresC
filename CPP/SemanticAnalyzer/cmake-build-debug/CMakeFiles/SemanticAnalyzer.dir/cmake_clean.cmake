@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.o"
-  "CMakeFiles/SemanticAnalyzer.dir/src/Sentance.cpp.o"
+  "CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.o"
   "CMakeFiles/SemanticAnalyzer.dir/src/Word.cpp.o"
   "CMakeFiles/SemanticAnalyzer.dir/src/main.cpp.o"
   "SemanticAnalyzer"
