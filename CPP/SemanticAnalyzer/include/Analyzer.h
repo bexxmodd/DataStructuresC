@@ -17,7 +17,7 @@ namespace Analyzer {
 	typedef std::unordered_map<std::string, double> Map;
 
 	std::vector<Sentence *> read(const std::string& filename);
-	bool validSentence(const std::string &line);
+	bool validSentence(std::string *line);
 	std::unordered_set<Word *> getWords(const std::vector<Sentence *> &sentences);
 	Map calculateScores(const std::unordered_set<Word *> &words);
 	double computeSentenceScore(std::string *sentence, const Map& wordScores);

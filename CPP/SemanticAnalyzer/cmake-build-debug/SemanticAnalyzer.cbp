@@ -38,17 +38,17 @@
 				</MakeCommands>
 			</Target>
 			<Target title="SemanticAnalyzer">
-				<Option output="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug/SemanticAnalyzer" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/bin/SemanticAnalyzer" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/10.2.0/../../../../include/c++/10.2.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/10.2.0/../../../../include/c++/10.2.0/x86_64-unknown-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/10.2.0/../../../../include/c++/10.2.0/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/10.2.0/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/10.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.2.0/../../../../include/c++/11.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.2.0/../../../../include/c++/11.2.0/x86_64-unknown-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.2.0/../../../../include/c++/11.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.2.0/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.2.0/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
@@ -60,17 +60,17 @@
 				</MakeCommands>
 			</Target>
 			<Target title="SemanticAnalyzer/fast">
-				<Option output="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug/SemanticAnalyzer" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/bin/SemanticAnalyzer" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/10.2.0/../../../../include/c++/10.2.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/10.2.0/../../../../include/c++/10.2.0/x86_64-unknown-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/10.2.0/../../../../include/c++/10.2.0/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/10.2.0/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/10.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.2.0/../../../../include/c++/11.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.2.0/../../../../include/c++/11.2.0/x86_64-unknown-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.2.0/../../../../include/c++/11.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.2.0/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.2.0/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>

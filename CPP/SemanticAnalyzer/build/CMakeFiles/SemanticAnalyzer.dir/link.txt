@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/SemanticAnalyzer.dir/src/main.cpp.o CMakeFiles/SemanticAnalyzer.dir/src/Word.cpp.o CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.o CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.o -o ../bin/SemanticAnalyzer 

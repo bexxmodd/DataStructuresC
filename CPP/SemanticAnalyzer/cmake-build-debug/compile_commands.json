@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/SemanticAnalyzer.dir/src/main.cpp.o -c /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/main.cpp",
+  "file": "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/main.cpp"
+},
+{
+  "directory": "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/SemanticAnalyzer.dir/src/Word.cpp.o -c /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Word.cpp",
+  "file": "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Word.cpp"
+},
+{
+  "directory": "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/SemanticAnalyzer.dir/src/Sentence.cpp.o -c /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentence.cpp",
+  "file": "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Sentence.cpp"
+},
+{
+  "directory": "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/cmake-build-debug",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/SemanticAnalyzer.dir/src/Analyzer.cpp.o -c /home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Analyzer.cpp",
+  "file": "/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/src/Analyzer.cpp"
+}
+]

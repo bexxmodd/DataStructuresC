@@ -14,4 +14,7 @@ CMakeFiles/SemanticAnalyzer.dir/src/Word.cpp.o: \
  ../include/Word.h \
  ../src/Word.cpp
 CMakeFiles/SemanticAnalyzer.dir/src/main.cpp.o: \
+ ../include/Analyzer.h \
+ ../include/Sentence.h \
+ ../include/Word.h \
  ../src/main.cpp

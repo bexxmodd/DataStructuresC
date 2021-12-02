@@ -1,0 +1,3 @@
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/build/CMakeFiles/SemanticAnalyzer.dir
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/build/CMakeFiles/edit_cache.dir
+/home/bexx/Projects/DataStructuresC/CPP/SemanticAnalyzer/build/CMakeFiles/rebuild_cache.dir

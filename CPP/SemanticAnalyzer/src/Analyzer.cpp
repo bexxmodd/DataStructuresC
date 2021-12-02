@@ -13,10 +13,23 @@ static Tuple split(std::string &src, const char delim) {
 	int pos = (int)src.find(delim);
 	if (pos != std::string::npos) {
 		std::string first = src.substr(0, pos + 1);
-		std::string second = src.substr(pos, src.size() - pos - 1);
+		std::string second = src.substr(pos + 1, src.size() - pos - 1);
 		return std::make_tuple(first, second);
 	} else
 		throw std::invalid_argument("Delimiter not found, can't split string");
+}
+
+static std::vector<std::string> split(std::string *src, const std::string &delim) {
+	std::vector<std::string> result;
+	size_t pos;
+	std::string token;
+	while ((pos = src->find(delim)) != std::string::npos) {
+		token = src->substr(0, pos);
+		result.push_back(token);
+		src->erase(0, pos + delim.length());
+	}
+	result.push_back(*src);
+	return result;
 }
 
 namespace Analyzer {
@@ -27,7 +40,7 @@ namespace Analyzer {
 		if (file.is_open()) {
 			std::string line;
 			while (std::getline(file, line)) {
-				if (Analyzer::validSentence(line)) {
+				if (Analyzer::validSentence(&line)) {
 					Tuple spl = split(line, ' ');
 					auto *sntnc = new Sentence(std::stoi(std::get<0>(spl)),
 											 std::get<1>(spl));
@@ -40,16 +53,43 @@ namespace Analyzer {
 		return sentences;
 	}
 
-	bool validSentence(const std::string &line) {
-		return (line.length() > 3
-			|| !std::strcmp(&line[0], " ")
-			|| !std::isalpha(line[0])
-			|| !std::isalnum(line[1]))
-			&& !std::strcmp(&line[0], "-");
+	bool validSentence(std::string *line) {
+		if (line->length() < 3 || !std::strcmp(&(*line)[0], " ") || std::isalpha((*line)[0]))
+			return false;
+		if (!std::strcmp(&(*line)[0], "-") && !std::isdigit((*line)[1]))
+			return false;
+
+		Tuple spl = split(*line, ' ');
+		int score = stoi(std::get<0>(spl));
+		char c = std::get<1>(spl)[0];
+		c += 32; // convert to lower case
+		return (score >= -2 && score <= 2) && (c >= 'a' && c <= 'z');
 	}
 
 	std::unordered_set<Word *> getWords(const std::vector<Sentence *> &sentences) {
 		std::unordered_set<Word *> words;
+		if (sentences.empty())
+			return words;
+		std::unordered_map<std::string, std::vector<int>> map;
+		for (auto& sentence : sentences) {
+			if (sentence->empty())
+				continue;
+			auto splits = split(&(sentence->text), " ");
+			for (auto& s : splits) {
+				std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+				if (std::isalpha(s[0])) {
+					if (map.count(s) < 1)
+						map.insert((std::make_pair(s, 1)));
+					map[s].push_back(sentence->score);
+				}
+			}
+		}
+		for (auto& entry : map) {
+			Word *w = new Word{entry.first};
+			for (int score : map[entry.first])
+				w->increateTotal(score);
+			words.insert(w);
+		}
 		return words;
 	}
 
@@ -60,7 +100,8 @@ namespace Analyzer {
 			 return map;
 		 for (auto& word : words) {
 			 if (!word->text.empty() || std::isalpha(word->text[0])) {
-				 std::transform(word->text.begin(), word->text.end(), word->text.begin(), tolower);
+				 std::transform(word->text.begin(), word->text.end(),
+								word->text.begin(), tolower);
 				 map.insert({ word->text, word->score() });
 			 }
 		 }
@@ -75,7 +116,15 @@ namespace Analyzer {
 			return score;
 
 		// overload split to return all the strings split on delimiter
-		auto splits = split(*sentence, ' ');
-		return 0;
+		auto splits = split(sentence, " ");
+		for (auto& s : splits) {
+			std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+			if (std::isalpha(s[0]) != 0) {
+				if (wordScores.count(s) > 0)
+					score += wordScores.at(s);
+				size++;
+			}
+		}
+		return size > 0 ? score / size : 0.0;
 	}
 }

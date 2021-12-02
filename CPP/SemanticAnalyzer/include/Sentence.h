@@ -9,14 +9,14 @@
 
 
 class Sentence {
-private:
+public:
 	int score;
 	std::string text;
 
-public:
 	Sentence(int _score, std::string txt);
 	bool operator==(Sentence const &other);
-	int compare(Sentence &other);
+	int compare(Sentence &other) const;
+	bool empty();
 	friend std::ostream &operator<<(std::ostream &os, Sentence const &sent) {
 		os << sent.score << " -> " << sent.text;
 		return os;

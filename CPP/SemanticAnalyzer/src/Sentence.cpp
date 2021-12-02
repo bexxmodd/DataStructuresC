@@ -10,6 +10,9 @@ Sentence::Sentence(int _score, std::string txt)
 bool Sentence::operator==(const Sentence &other) {
 	return strcmp(text.c_str(), other.text.c_str());
 }
-int Sentence::compare(Sentence &other) {
+int Sentence::compare(Sentence &other) const {
 	return score - other.score;
+}
+bool Sentence::empty() {
+	return text.empty();
 }
