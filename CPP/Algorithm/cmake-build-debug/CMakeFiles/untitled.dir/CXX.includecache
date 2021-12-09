@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bexx/Projects/DataStructuresC/CPP/Algorithm/Algorithm.cpp
+Algorithm.h
+/home/bexx/Projects/DataStructuresC/CPP/Algorithm/Algorithm.h
+iostream
+-
+
+/home/bexx/Projects/DataStructuresC/CPP/Algorithm/Algorithm.h
+vector
+-
+

@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bexx/Projects/DataStructuresC/CPP/Timer/Main.cpp
+TimerClass.cpp
+/home/bexx/Projects/DataStructuresC/CPP/Timer/TimerClass.cpp
+unistd.h
+-
+
+/home/bexx/Projects/DataStructuresC/CPP/Timer/TimerClass.cpp
+cstring
+-
+ctime
+-
+iostream
+-
+cstdio
+-
+cstring
+-
+stdexcept
+-
+utility
+-
+

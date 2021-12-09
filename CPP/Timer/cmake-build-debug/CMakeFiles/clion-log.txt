@@ -1,0 +1,4 @@
+/app/extra/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/bexx/Projects/DataStructuresC/CPP/Timer
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/bexx/Projects/DataStructuresC/CPP/Timer/cmake-build-debug

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Timer.dir/TimerClass.cpp.o CMakeFiles/Timer.dir/Main.cpp.o -o Timer 

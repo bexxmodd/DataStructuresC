@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -g -shared -Wl,-soname,libuntitled.so -o libuntitled.so CMakeFiles/untitled.dir/Algorithm.cpp.o 
